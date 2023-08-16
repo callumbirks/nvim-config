@@ -70,4 +70,9 @@ return require('packer').startup(function(use)
             { 'mfussenegger/nvim-dap' }
         }
     }
+
+    use 'lewis6991/gitsigns.nvim'
+
+    use { 'akinsho/git-conflict.nvim' }
+
 end)
