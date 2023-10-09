@@ -35,6 +35,7 @@ return require('lazy').setup({
     { "jay-babu/mason-nvim-dap.nvim", dependencies = {{
         "williamboman/mason.nvim", "mfussenegger/nvim-dap" }} },
 
+    -- Lazy-loaded to avoid weird bug where `vim.loop.cwd()` is nil
     { "civitasv/cmake-tools.nvim", lazy = true },
 
     { "vim-test/vim-test" },

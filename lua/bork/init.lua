@@ -1,4 +1,4 @@
 require('bork.set')
-require('bork.packer')
+require('bork.lazy')
 require('bork.remap')
 require('bork.colors')
