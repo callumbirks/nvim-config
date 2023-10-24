@@ -46,7 +46,7 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		['<C-p>'] = cmp.mapping.select_prev_item(),
 		['<C-n>'] = cmp.mapping.select_next_item(),
-		['<C-y>'] = cmp.mapping.confirm(),
+		['<C-s>'] = cmp.mapping.confirm(),
 		['<C-Space>'] = cmp.mapping.complete(),
 	}),
 	snippet = {
