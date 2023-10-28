@@ -32,7 +32,7 @@ vim.keymap.set("v", "U", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "Y", "yg$")
 vim.keymap.set("n", "E", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-h>", "<C-u>zz")
+vim.keymap.set("n", "<C-s>", "<C-u>zz")
 vim.keymap.set("n", "h", "nzzzv")
 vim.keymap.set("n", "H", "Nzzzv")
 
@@ -49,7 +49,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end)
-vim.keymap.set("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 vim.keymap.set("n", "<C-u>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-e>", "<cmd>cprev<CR>zz")
