@@ -46,4 +46,6 @@ return require('lazy').setup({
     { "lewis6991/gitsigns.nvim" },
 
     { "akinsho/git-conflict.nvim" },
+
+    { "m4xshen/autoclose.nvim" },
 })
