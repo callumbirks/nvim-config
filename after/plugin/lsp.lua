@@ -21,9 +21,11 @@ local lsps = { 'lua_ls', 'clangd', 'cmake', 'rust_analyzer' }
 
 require('mason-lspconfig').setup {
     ensure_installed = lsps,
+    handlers = {
+        lsp.default_setup,
+        rust_analyzer = lsp.noop,
+    }
 }
-
-lsp.skip_server_setup({ 'rust_analyzer' })
 
 require('lspconfig').lua_ls.setup {
 	settings = {
@@ -37,6 +39,8 @@ require('lspconfig').lua_ls.setup {
 
 lsp.setup()
 
+local cmp_format = lsp.cmp_format()
+
 require('rust-tools').setup()
 
 local cmp = require('cmp')
@@ -46,12 +50,15 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		['<C-p>'] = cmp.mapping.select_prev_item(),
 		['<C-n>'] = cmp.mapping.select_next_item(),
-		['<C-s>'] = cmp.mapping.confirm(),
+		['<C-y>'] = cmp.mapping.confirm(),
 		['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-s>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),
 	}),
 	snippet = {
 		expand = function(args)
 			require('luasnip').lsp_expand(args.body)
 		end,
 	},
+    formatting = cmp_format,
 })
