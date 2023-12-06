@@ -53,7 +53,7 @@ cmp.setup({
 		['<C-y>'] = cmp.mapping.confirm(),
 		['<C-Space>'] = cmp.mapping.complete(),
         ['<C-s>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+        ['<C-u>'] = cmp.mapping.scroll_docs(4),
 	}),
 	snippet = {
 		expand = function(args)
