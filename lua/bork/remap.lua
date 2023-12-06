@@ -26,6 +26,8 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("t", "<C-space>", "<C-\\><C-n>")
 
+vim.keymap.set("n", "Z", vim.cmd.ZenMode)
+
 vim.keymap.set("v", "E", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "U", ":m '<-2<CR>gv=gv")
 

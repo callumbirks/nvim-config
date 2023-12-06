@@ -30,7 +30,6 @@ dap.configurations.cpp = {
                 return vim.fn.input('Progam args: ')
             end, },
         cwd = '${workspaceFolder}',
-        preRunCommands = { "breakpoint name configure --disable cpp_exception" },
         stopOnEntry = false,
     },
 }

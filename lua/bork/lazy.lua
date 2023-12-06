@@ -67,5 +67,7 @@ return require('lazy').setup({
 
     { "folke/zen-mode.nvim" },
 
-    { "m4xshen/autoclose.nvim", config = true },
+    { "m4xshen/autoclose.nvim",    config = true },
+
+    { "nvim-tree/nvim-web-devicons" }
 })
