@@ -10,7 +10,7 @@ return {
       local ui = require("harpoon.ui")
       return {
         { "<leader>ha", mark.add_file, desc = "Add File Mark" },
-        { "<leader>ht", ui.toggle_quick_menu, desc = "Toggle Harpoon Menu" },
+        { "<leader>hu", ui.toggle_quick_menu, desc = "Harpoon UI" },
         {
           "<C-n>",
           function()
@@ -43,5 +43,26 @@ return {
   {
     "akinsho/bufferline.nvim",
     enabled = false,
+  },
+  {
+    "civitasv/cmake-tools.nvim",
+    opts = {
+      cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" },
+      cmake_soft_link_compile_commands = true,
+      cmake_build_directory = "build",
+    },
+    keys = {
+      { "<leader>cmb", "<cmd>CMakeBuild all<cr>", desc = "Build" },
+      { "<leader>cmg", "<cmd>CMakeGenerate<cr>", desc = "Generate" },
+    },
+  },
+  {
+    "folke/which-key.nvim",
+    opts = {
+      defaults = {
+        ["<leader>cm"] = { name = "cmake" },
+        ["<leader>h"] = { name = "harpoon" },
+      },
+    },
   },
 }
