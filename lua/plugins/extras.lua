@@ -10,4 +10,5 @@ return {
     -- Rustaceanvim is added in `additions.lua`
     -- { import = "lazyvim.plugins.extras.lang.rust" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
+    { import = "lazyvim.plugins.extras.dap.core" }
 }

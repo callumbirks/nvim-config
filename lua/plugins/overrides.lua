@@ -37,7 +37,6 @@ return {
             },
         },
     },
-    -- Make cmp windows look the same
     {
         "hrsh7th/nvim-cmp",
         opts = function(_, opts)
@@ -52,6 +51,7 @@ return {
                 { "│", "FloatBorder" },
             }
 
+            -- Make cmp windows look like noice windows
             vim.cmd("hi Pmenu guibg=NONE")
             vim.cmd("hi Pmenu blend=0")
             vim.cmd("hi FloatBorder blend=0")
@@ -66,7 +66,49 @@ return {
                     border = border,
                 },
             }
+            -- Rust crates in cmp
+            opts.sources = require("cmp").config.sources(vim.list_extend(opts.sources, {
+                { name = "crates" },
+            }))
             return opts
         end,
+        dependencies = {
+            {
+                "Saecki/crates.nvim",
+                event = { "BufRead Cargo.toml" },
+                opts = {
+                    src = {
+                        cmp = { enabled = true },
+                    },
+                },
+            },
+        },
+    },
+    -- Correctly setup lspconfig for Rust 🚀
+    {
+        "neovim/nvim-lspconfig",
+        opts = {
+            servers = {
+                rust_analyzer = {},
+                taplo = {
+                    keys = {
+                        {
+                            "K",
+                            function()
+                                if vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+                                    require("crates").show_popup()
+                                else
+                                    vim.lsp.buf.hover()
+                                end
+                            end,
+                            desc = "Show Crate Documentation",
+                        },
+                    },
+                },
+            },
+            setup = {
+                rust_analyzer = function() return true end,
+            },
+        },
     },
 }

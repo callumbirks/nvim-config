@@ -19,3 +19,8 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 -- Delete without overriding yank buffer
 vim.keymap.set("n", "<leader>d", '"_d')
 vim.keymap.set("v", "<leader>d", '"_d')
+
+vim.keymap.set({ "n", "v" }, "<leader>ml", ":s/\\<<C-R>0\\>/<C-R>0/gI<Left><Left><Left>")
+vim.keymap.set("n", "<leader>mb", ":%s/\\<<C-R>0\\>/<C-R>0/gI<Left><Left><Left>")
+vim.keymap.set({ "n", "v" }, "<leader>rl", ":s/\\<<C-R>0\\>//gI<Left><Left><Left>")
+vim.keymap.set("n", "<leader>rb", ":%s/\\<<C-R>0\\>//gI<Left><Left><Left>")
